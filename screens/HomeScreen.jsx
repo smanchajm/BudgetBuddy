@@ -1,10 +1,11 @@
 import React from 'react';
 import { SafeAreaView, Text, Button, StyleSheet } from 'react-native';
+import SummaryChart from '../components/SummaryChart';
 
 function HomeScreen(props) {
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Home Screen</Text>
+            <SummaryChart />
         </SafeAreaView>
     );
 }

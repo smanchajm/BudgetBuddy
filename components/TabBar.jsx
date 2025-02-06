@@ -1,4 +1,6 @@
 import { StyleSheet, TouchableOpacity, View, Image } from "react-native";
+import { SymbolView, SymbolViewProps, SFSymbol } from 'expo-symbols';
+
 import homeLogoSelected from "../assets/homeLogo-selected.png";
 import reglagesLogoSelected from "../assets/reglagesLogo-selected.png";
 // import calendrierLogoSelected from "@/assets/images/calendrierLogo-selected.png";
@@ -36,11 +38,11 @@ const TabBar = ({ state, descriptors, navigation }) => {
                         style={[styles.tabButton, isFocused && styles.selectedTab]}
                     >
                         {label === "Home" && (
-                            <Image style={styles.iconButtonNav} source={isFocused ? homeLogoSelected : homeLogoUnselected} />
+                            <SymbolView name="house" style={isFocused ? styles.iconButtonNavSelected : styles.iconButtonNavNotSelected} type="hierarchical" />
                             
                         )}
                         {label === "Detail" && (
-                            <Image style={styles.iconButtonNav} source={isFocused ? reglagesLogoSelected : reglagesLogoUnselected} />
+                            <SymbolView name="tray.full" style={isFocused ? styles.iconButtonNavSelected : styles.iconButtonNavNotSelected} type="hierarchical" />
                         )}
                     </TouchableOpacity>
                 );
@@ -81,10 +83,16 @@ const styles = StyleSheet.create({
     selectedTab: {
         backgroundColor: couleurs.lightGreen,
     },
-    iconButtonNav: {
+    iconButtonNavSelected: {
         width: 40, 
         height: 40,
-    }    
+        tintColor : couleurs.darkGreen
+    }, 
+    iconButtonNavNotSelected: {
+        width: 40, 
+        height: 40,
+        tintColor : couleurs.lightGreen
+    }
 });
 
 export default TabBar;

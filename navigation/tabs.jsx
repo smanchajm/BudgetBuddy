@@ -12,7 +12,7 @@ const Tabs = () => {
         <Tab.Navigator 
         styles={styles.tabBar}
         screenOptions={{
-          headerShown: false,
+          headerTitle: "BudgetBuddy"
         }}
         tabBar={props => <TabBar {...props} />}
         >
