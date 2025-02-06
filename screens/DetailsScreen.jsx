@@ -10,6 +10,10 @@ function DetailsScreen(props) {
 
     const db =useSQLiteContext();
 
+    // gros test de pull request
+
+    
+
     React.useEffect(() => {
         db.withTransactionAsync(async () => {
             await getData();
@@ -19,6 +23,9 @@ function DetailsScreen(props) {
     async function getData() {
         const result = await db.getAllAsync('SELECT * FROM Transactions ORDER BY date DESC;');     
         setTransactions(result);
+
+        const categoriesResult = await db.getAllAsync(`SELECT * FROM Categories;`);
+        setCategories(categoriesResult);
     }
 
     async function deleteTransaction(id) {
